@@ -4,9 +4,10 @@ import com.secured.userpool.model.AuditDAO;
 import jakarta.persistence.*;
 import lombok.*;
 
+
+@EqualsAndHashCode(callSuper = true)
+@Data
 @Entity
-@Getter
-@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

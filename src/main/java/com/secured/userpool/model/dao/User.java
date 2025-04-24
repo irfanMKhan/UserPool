@@ -5,12 +5,14 @@ import com.secured.userpool.model.dao.privilege.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.SQLOrder;
 import org.hibernate.annotations.SQLRestriction;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name = "iam_user")

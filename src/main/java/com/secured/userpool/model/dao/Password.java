@@ -4,8 +4,10 @@ import com.secured.userpool.model.AuditDAO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name = "iam_password")

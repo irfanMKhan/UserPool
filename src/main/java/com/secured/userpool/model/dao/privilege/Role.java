@@ -8,9 +8,9 @@ import lombok.*;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
 @Entity
-@Getter
-@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
