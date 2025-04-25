@@ -37,13 +37,13 @@ public class User extends AuditDAO {
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, targetEntity = Password.class)
-    @SQLRestriction("is_active = true")
-    @SQLOrder("created_date desc")
-    private List<Password> password;
+//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, targetEntity = Password.class)
+//    @SQLRestriction("is_active = true")
+//    @SQLOrder("created_date desc")
+//    private List<Password> password;
 
-    public Password getLastPassword() {
-        return this.password.get(0);
-    }
+//    public Password getLastPassword() {
+//        return this.password.get(0);
+//    }
 
 }

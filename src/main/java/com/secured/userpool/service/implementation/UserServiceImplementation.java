@@ -5,7 +5,7 @@ import com.secured.userpool.model.dao.Password;
 import com.secured.userpool.model.dao.User;
 import com.secured.userpool.model.dto.UserDTO;
 import com.secured.userpool.model.payload.UserRequest;
-import com.secured.userpool.repository.UserRepository;
+import com.secured.userpool.repository.UserRepositoryJPA;
 import com.secured.userpool.service.UserService;
 import com.secured.userpool.utility.PasswordEncoderService;
 import lombok.RequiredArgsConstructor;
@@ -14,13 +14,30 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImplementation implements UserService {
 
-    private final UserRepository userRepository;
+    private final UserRepositoryJPA userRepository;
+
+    public List<UserDTO> get(String sort, String order) {
+        List<User> userList = userRepository.get(sort, order);
+        List<UserDTO> userDTOList = new ArrayList<>();
+
+        for (User user : userList) {
+            UserDTO userDTO = new UserDTO();
+            ModelMapper mapper = new ModelMapper();
+            System.out.println(user);
+
+            mapper.map(user, userDTO);
+            userDTOList.add(userDTO);
+        }
+        return userDTOList;
+    }
 
     public UserDTO save(UserRequest request) {
 
@@ -37,13 +54,13 @@ public class UserServiceImplementation implements UserService {
             savePassword(request.getPassword(), user);
 
             UserDTO userDTO = new UserDTO();
-            mapper.map(user,userDTO);
+            mapper.map(user, userDTO);
 
             return userDTO;
         }
     }
 
-    private Password savePassword(String raw, User user){
+    private Password savePassword(String raw, User user) {
         Password password = Password.builder()
                 .hashed(new PasswordEncoderService(
                                 PasswordEncoderService.EncodeAlgorithm.sha512
