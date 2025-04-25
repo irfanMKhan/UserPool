@@ -36,7 +36,10 @@ public class UserServiceImplementation implements UserService {
             user = userRepository.save(user);
             savePassword(request.getPassword(), user);
 
-            return new UserDTO();
+            UserDTO userDTO = new UserDTO();
+            mapper.map(user,userDTO);
+
+            return userDTO;
         }
     }
 
