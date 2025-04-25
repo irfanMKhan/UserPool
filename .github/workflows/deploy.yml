@@ -48,5 +48,5 @@ jobs:
           echo "=== JAR files in ~/app ==="
           ls -lh ~/app/*.jar
           echo "=== Starting app ==="
-          nohup java -jar ~/app/*.jar > ~/app/app.log 2>&1 &
+          nohup java -jar ~/app/build/libs/UserPool-0.0.1.jar > ~/app/app.log 2>&1 &
           echo "=== Deployment complete! ==="
