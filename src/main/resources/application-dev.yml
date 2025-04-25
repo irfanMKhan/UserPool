@@ -1,0 +1,8 @@
+application:
+  login:
+    attempt: 4
+  ip:
+    lockout:
+      duration: 5
+  date:
+    formatter: yyyy-MM-dd'T'HH:mm:ss.SSSZ
