@@ -33,8 +33,8 @@ public class User extends AuditDAO {
     private Boolean isTokenExpired;
     private Boolean isLocked;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, targetEntity = Role.class)
-    @JoinColumn(name = "role_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Role.class)
+    @JoinColumn(name = "role_id")
     private Role role;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, targetEntity = Password.class)

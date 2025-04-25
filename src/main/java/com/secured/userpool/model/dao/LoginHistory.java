@@ -26,7 +26,7 @@ public class LoginHistory {
     private Long createdBy;
     private LocalDateTime createdDate;
     private Long createdDateLong;
-    private Boolean LoggedIn;
+    private Boolean attempt;
 
     public LoginHistory() {
         LocalDateTime now = LocalDateTime.now();

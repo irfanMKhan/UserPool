@@ -2,14 +2,12 @@ package com.secured.userpool.model.dao;
 
 import com.secured.userpool.model.AuditDAO;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
+@Builder
 @Table(name = "iam_password")
 @NoArgsConstructor
 @AllArgsConstructor

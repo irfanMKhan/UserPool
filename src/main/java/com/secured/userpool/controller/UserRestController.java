@@ -1,14 +1,19 @@
 package com.secured.userpool.controller;
 
+import com.secured.userpool.model.payload.UserRequest;
 import com.secured.userpool.service.UserService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/user")
 @AllArgsConstructor
 public class UserRestController {
+
     private final UserService userService;
 
     @GetMapping(value = "")
@@ -17,8 +22,8 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public RequestEntity<?> save() {
-        return null;
+    public ResponseEntity<?> save(@Valid @RequestBody UserRequest request) {
+        return new ResponseEntity<>(userService.save(request), HttpStatus.CREATED);
     }
 
     @PutMapping(value = "")
