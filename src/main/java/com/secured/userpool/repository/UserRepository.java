@@ -6,7 +6,7 @@ import com.secured.userpool.model.dao.User;
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepositoryJPA {
+public interface UserRepository {
 
     User save(User user);
 

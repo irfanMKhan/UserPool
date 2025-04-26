@@ -5,7 +5,7 @@ import com.secured.userpool.model.dao.Password;
 import com.secured.userpool.model.dao.User;
 import com.secured.userpool.model.dto.UserDTO;
 import com.secured.userpool.model.payload.UserRequest;
-import com.secured.userpool.repository.UserRepositoryJPA;
+import com.secured.userpool.repository.UserRepository;
 import com.secured.userpool.service.UserService;
 import com.secured.userpool.utility.PasswordEncoderService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserServiceImplementation implements UserService {
 
-    private final UserRepositoryJPA userRepository;
+    private final UserRepository userRepository;
 
     public List<UserDTO> get(String sort, String order) {
         List<User> userList = userRepository.get(sort, order);

@@ -2,8 +2,9 @@ package com.secured.userpool.repository.implementation;
 
 import com.secured.userpool.model.dao.Password;
 import com.secured.userpool.model.dao.User;
-import com.secured.userpool.repository.UserRepositoryJPA;
+import com.secured.userpool.repository.UserRepository;
 import com.secured.userpool.repository.implementation.provider.PasswordRepositoryJPA;
+import com.secured.userpool.repository.implementation.provider.UserRepositoryJPA;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
@@ -13,9 +14,9 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class UserRepositoryImplementation implements UserRepositoryJPA {
+public class UserRepositoryImplementation implements UserRepository {
 
-    private final com.secured.userpool.repository.implementation.provider.UserRepositoryJPA userRepositoryJPA;
+    private final UserRepositoryJPA userRepositoryJPA;
     private final PasswordRepositoryJPA passwordRepositoryJPA;
 
     public Optional<User> findByUsername(String username) {
