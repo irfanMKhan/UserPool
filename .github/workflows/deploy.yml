@@ -44,7 +44,7 @@ jobs:
         script: |
           echo "=== Cleaning up old app ==="
           pkill -f 'java -jar' || true
-          mkdir -p ~/app
+          # mkdir -p ~/app
           echo "=== JAR files in ~/app ==="
           ls -lh ~/app/*.jar
           echo "=== Starting app ==="
