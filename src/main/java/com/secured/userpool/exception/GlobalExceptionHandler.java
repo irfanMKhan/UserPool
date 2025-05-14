@@ -29,4 +29,5 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> handleCommonResponseException(CommonResponseException exception, HttpServletRequest request, HttpServletResponse response) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatusCode.valueOf(response.getStatus()));
     }
+    
 }
